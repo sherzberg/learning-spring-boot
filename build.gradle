@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC1")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'learning-spring-boot'
+    version =  '0.0.1'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.0.0.RC1")
+
+    testCompile "org.codehaus.groovy:groovy-all:2.1.7"
+    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.9'
+}
