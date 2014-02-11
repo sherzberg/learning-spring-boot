@@ -1,3 +1,3 @@
 image: bradrydzewski/java:openjdk7
 script:
-  - ./gradlew --full-stacktrace -q build package
+  - ./gradlew --full-stacktrace build
